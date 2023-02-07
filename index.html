@@ -1,58 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
     <style>
-
-      *{
+      * {
         box-sizing: border-box;
         margin: 0px;
         padding: 0px;
       }
 
-       .container{
+      body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+        height: 100vh;
+        width: 100vw;
+      }
+
+
+      .container {
         margin: auto;
         display: grid;
-        grid-template-rows:repeat(16,1fr);
-        grid-template-columns: repeat(12,1fr);
-        width: 93rem;
-        height: 50rem;
-        justify-content: center;
-       }
+        grid-template-rows: repeat(16, 1fr);
+        grid-template-columns: repeat(24, minmax(0,1fr));
+        margin: auto;
+        justify-items: stretch;
+        align-items: stretch;
+        height: 100%;
+        width: 100%;
+        min-width: 0;
+        min-height: 0;
+      }
 
-       .left{
-        grid-area: 4/2/11/8;
-       }
+      .left {
+        grid-area: 4/3/14/15;
+      }
 
-       .top{
-          grid-area: 3/5/15/9;
-          z-index: -1;
-       }
+      .top {
+        grid-area: 3/9/15/17;
+        z-index: -1;
+        transform: scaleX(0.994);
+      }
 
-       .right{
-         grid-area: 4/8/11/10; 
-         width: 15.375rem;
-         margin-left:0.25rem ;
-       }
+      .right {
+        grid-area: 4/15/14/19;
+      }
 
-       .bottom{
-        grid-area: 15/5/17/9;
-        height: 6.25rem;
-       }
-       
+      .bottom {
+        grid-area: 15/9/17/17;
+        transform: scaleX(0.994);
+      }
+
+      @media only screen and (max-width: 768px) {
+
+        .container{
+          grid-template-rows: repeat(22, 1fr);
+        }
+
+         .top{
+          grid-column: 4/22;
+         }
+
+         .bottom{
+          grid-column: 4/22;
+         }
+
+         .left{
+          grid-row: 5/13;
+          grid-column:1/7;
+          transform: scaleX(4);
+         }
+
+         .right{
+          grid-row: 5/13;
+          grid-column: 19/25;
+          transform: scaleX(1.2);
+         }
+
+      }
     </style>
-
-</head>
-<body>
-  <div class="container">
-    <img class="left" src="images/eye-catch-pc-image.png" alt="">
-    <img class="top" src="images/eye-catch-bg-top-image.jpeg" alt="">
-    <img class="right" src="images/eye-catch-sp-image.png" alt="">
-    <img class="bottom" src="images/eye-catch-bg-bottom-image.jpeg" alt="">
-  </div> 
-</body>
+  </head>
+  <body>
+    <div class="container">
+      <img class="left" src="images/eye-catch-pc-image.png" alt="" />
+      <img class="top" src="images/eye-catch-bg-top-image.jpeg" alt="" />
+      <img class="right" src="images/eye-catch-sp-image.png" alt="" />
+      <img class="bottom" src="images/eye-catch-bg-bottom-image.jpeg" alt="" />
+    </div>
+  </body>
 </html>
